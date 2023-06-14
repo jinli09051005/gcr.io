@@ -1,0 +1,1 @@
+FROM cert-manager-acmesolver:v1.12.1

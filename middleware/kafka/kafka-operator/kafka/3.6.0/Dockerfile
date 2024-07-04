@@ -1,1 +1,1 @@
-FROM quay.io/strimzi/kafka:kafka-3.6.0
+FROM quay.io/strimzi/kafka:0.41.0-kafka-3.6.0

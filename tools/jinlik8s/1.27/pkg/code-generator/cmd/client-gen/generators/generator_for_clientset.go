@@ -108,7 +108,8 @@ type Interface interface {
 `
 
 var clientsetTemplate = `
-// Clientset contains the clients for groups.
+// Clientset contains the clients for groups. Each group has exactly one
+// version included in a Clientset.
 type Clientset struct {
 	*$.DiscoveryClient|raw$
     $range .allGroups$$.LowerCaseGroupGoName$$.Version$ *$.PackageAlias$.$.GroupGoName$$.Version$Client
@@ -141,10 +142,6 @@ var newClientsetForConfigTemplate = `
 // where httpClient was generated with rest.HTTPClientFor(c).
 func NewForConfig(c *$.Config|raw$) (*Clientset, error) {
 	configShallowCopy := *c
-
-	if configShallowCopy.UserAgent == "" {
-		configShallowCopy.UserAgent = $.DefaultKubernetesUserAgent|raw$()
-	}
 
 	// share the transport between all clients
 	httpClient, err := $.RESTHTTPClientFor|raw$(&configShallowCopy)

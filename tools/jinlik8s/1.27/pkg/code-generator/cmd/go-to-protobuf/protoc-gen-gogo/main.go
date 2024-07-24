@@ -19,8 +19,6 @@ limitations under the License.
 package main
 
 import (
-	"strings"
-
 	"github.com/gogo/protobuf/vanity/command"
 
 	// dependencies that are required for our packages
@@ -30,18 +28,5 @@ import (
 )
 
 func main() {
-	// read input
-	request := command.Read()
-
-	// if we're given paths as inputs, generate .pb.go files based on those paths
-	for _, file := range request.FileToGenerate {
-		if strings.Contains(file, "/") {
-			param := "paths=source_relative"
-			request.Parameter = &param
-			break
-		}
-	}
-
-	// generate
-	command.Write(command.Generate(request))
+	command.Write(command.Generate(command.Read()))
 }

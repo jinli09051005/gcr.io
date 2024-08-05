@@ -1,1 +1,1 @@
-FROM gcr.io/distroless/base-debian11
+FROM docker.io/library/ubuntu:20.04

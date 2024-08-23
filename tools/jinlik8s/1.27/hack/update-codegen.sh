@@ -5,7 +5,7 @@ set -o nounset
 set -o pipefail
 GOPATH=$(go env GOPATH)
 SCRIPT=$(dirname "${BASH_SOURCE[0]}")
-SCRIPT_ROOT=$(SCRIPT)/..
+SCRIPT_ROOT="${SCRIPT}"/..
 CODEGEN_PKG=${CODEGEN_PKG:-$(echo ../code-generator)}
 
 if [ "$1" == "external" ]; then

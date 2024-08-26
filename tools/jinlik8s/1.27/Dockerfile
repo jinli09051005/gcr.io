@@ -10,5 +10,7 @@ RUN wget https://github.com/kubernetes-sigs/apiserver-builder-alpha/releases/dow
 RUN wget -O pkg/go.tar.gz https://golang.google.cn/dl/go1.21.12.linux-amd64.tar.gz --no-check-certificate
 # operator-sdk
 RUN wget https://github.com/operator-framework/operator-sdk/releases/download/v1.27.0/operator-sdk_linux_amd64 --no-check-certificate && chmod +x operator-sdk_linux_amd64 && mv operator-sdk_linux_amd64 bin/operator-sdk
+# kustomize
+RUN wget https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv5.4.3/kustomize_v5.4.3_linux_amd64.tar.gz --no-check-certificate && tar -C ./bin -xvf kustomize_v5.4.3_linux_amd64.tar.gz && rm -rf kustomize_v5.4.3_linux_amd64.tar.gz
 # kubernetes-1.27
 RUN git clone -b release-1.27 https://github.com/kubernetes/kubernetes.git ./pkg/kubernetes/
